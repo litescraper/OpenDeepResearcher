@@ -33,6 +33,21 @@ This notebook implements an **AI researcher** that continuously searches for inf
 3. **Configure API Keys:**
    - Replace the placeholder values in the notebook for `OPENROUTER_API_KEY`, `SERPAPI_API_KEY`, and `JINA_API_KEY` with your actual API keys.
 
+## Optional search provider
+
+Support any Serper.dev-compatible endpoint (like litescrape.com, serpbase.dev, serpensapi.org, and others)
+
+Set `SEARCH_PROVIDER=serper` and `SERPER_API_KEY` in the notebook process
+environment to use Serper-compatible Google search in either notebook.
+`SERPER_BASE_URL` defaults to `https://google.serper.dev`; requests append
+`/search` and use `X-API-KEY` authentication.
+
+Leaving `SEARCH_PROVIDER` unset retains the existing SerpAPI implementation.
+The alternate mode needs no SerpAPI key, but Jina still fetches full-page
+content and OpenRouter still runs the research loop. Only URL discovery is
+changed; no notebook outputs, metadata or downstream research behavior are
+modified. Do not paste real keys into notebook cells or saved outputs.
+
 ## Usage
 
 1. **Run the Notebook Cells:**
